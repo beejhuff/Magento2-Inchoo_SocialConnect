@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/page.xsd">
+    <head>
+        <link src="Inchoo_SocialConnect::js/facebook/button.js"/>
+    </head>
+</page>
