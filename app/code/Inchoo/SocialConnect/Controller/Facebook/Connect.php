@@ -14,9 +14,9 @@ class Connect extends \Inchoo\SocialConnect\Controller\Facebook
         try {
             $this->_connectCallback();
         } catch (\Inchoo\SocialConnect\Model\Facebook\Oauth2\Exception $e) {
-            $this->messageManager->addNotice($e);
+            $this->messageManager->addNotice($e->getMessage());
         } catch (\Exception $e) {
-            $this->messageManager->addError($e);
+            $this->messageManager->addError($e->getMessage());
         }
 
         $this->_sendResponse();
