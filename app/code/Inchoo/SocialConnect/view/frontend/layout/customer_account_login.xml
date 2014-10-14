@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/page.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <update handle="inchoo_socialconnect_facebook_button" />
     <referenceContainer name="customer.login.container">
         <block class="Inchoo\SocialConnect\Block\Container\Login" name="inchoo_socialconnect_login" template="login.phtml" cacheable="false">
