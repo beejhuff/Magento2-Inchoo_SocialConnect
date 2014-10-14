@@ -1,0 +1,29 @@
+<div class="zeeandco-facebook-connect-button">
+    <div id="fb-root"></div>
+    <div class="fb-login-button"
+         data-size="large"
+         data-show-faces="false"
+         data-auto-logout-link="false"
+         data-scope="<?php echo implode(',', $this->_currentBlock->getScope()); ?>"
+         data-onlogin="inchoo_socialconnect_signin_callback">
+        <?php echo $this->_currentBlock->getButtonText(); ?>
+    </div>
+
+    <script>
+        //<![CDATA[
+        var inchoo_socialconnect = {
+            appid: "<?php echo $this->_currentBlock->getAppId(); ?>",
+            state: "<?php echo $this->_currentBlock->getState(); ?>",
+            ajaxurl: "<?php echo $this->_currentBlock->getAjaxUrl(); ?>"
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        //]]>
+    </script>
+</div>

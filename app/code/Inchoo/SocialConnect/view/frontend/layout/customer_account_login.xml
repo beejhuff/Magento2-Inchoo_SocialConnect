@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="inchoo_socialconnect_facebook_button" />
+    <referenceContainer name="customer.login.container">
+        <block class="Inchoo\SocialConnect\Block\Container\Login" name="inchoo_socialconnect_login" template="login.phtml" cacheable="false">
+            <block class="Inchoo\SocialConnect\Block\Facebook\Button" name="inchoo_socialconnect_login_facebook_button" template="facebook/button.phtml" cacheable="false">
+                <arguments>
+                    <argument name="button_text" translate="true" xsi:type="string">Login</argument>
+                </arguments>
+            </block>
+        </block>
+    </referenceContainer>
+</page>

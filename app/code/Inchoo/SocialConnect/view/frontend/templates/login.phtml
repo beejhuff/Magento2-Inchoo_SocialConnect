@@ -1,0 +1,9 @@
+<div class="inchoo-socialconnect-container inchoo-socialconnect-container-login">
+    <?php if($this->_currentBlock->facebookEnabled()): ?>
+    <div class="inchoo-socialconnect-login-facebook">
+        <h3><?php echo __('Facebook Connect') ?></h3>
+        <p><?php echo __('You can login using your <strong>Facebook</strong> account.') ?></p>
+        <?php echo $this->getChildHtml('inchoo_socialconnect_login_facebook_button'); ?>
+    </div>
+    <?php endif; ?>
+</div>
