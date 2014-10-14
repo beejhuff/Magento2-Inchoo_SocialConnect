@@ -28,6 +28,7 @@ class Button extends \Magento\Framework\View\Element\Template
     /**
      * @param \Inchoo\SocialConnect\Model\Facebook\Oauth2\Client $clientFacebook
      * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
      */
@@ -58,12 +59,18 @@ class Button extends \Magento\Framework\View\Element\Template
         $this->_clientFacebook->setState($csrf);
     }
 
+    /**
+     * @return string
+     */
     public function getButtonText()
     {
-        $userInfo = $this->_registry->registry('inchoo_socialconnect_facebook_userinfo');
+        // Get user info for currently logged in user if it already exists
+        $userInfo = $this->_registry->registry('inchoo_socialconnect_userinfo');
 
         if (is_null($userInfo) || !$userInfo->hasData()) {
-            if (!($text = $this->_registry->registry('inchoo_socialconnect_button_text'))) {
+            // No user info, see if we have something set through layout
+            if (!($text = $this->getData('button_text'))) {
+                // "Connect" is fallback used when text isn't set through layout
                 $text = __('Connect');
             }
         } else {

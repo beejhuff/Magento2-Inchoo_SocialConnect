@@ -35,7 +35,10 @@ class Connect extends \Inchoo\SocialConnect\Controller\Facebook
             !$state ||
             $state != $this->_customerSession->getFacebookCsrf()) {
             // Direct route access - deny
-            return $this;
+
+            throw new \Magento\Framework\Exception(
+                __('Security check failed. Please try again.')
+            );
         }
 
         $token = new \stdClass();

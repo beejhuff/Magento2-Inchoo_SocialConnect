@@ -42,8 +42,8 @@ class UserFactory
      */
     public function __construct(
         \Magento\Framework\ObjectManager $objectManager,
-        $instanceName = '\Inchoo\SocialConnect\Model\Facebook\Info',
-        \Magento\Customer\Model\Session $customerSession)
+        \Magento\Customer\Model\Session $customerSession,
+        $instanceName = '\Inchoo\SocialConnect\Model\Facebook\Info\User')
     {
         $this->_objectManager = $objectManager;
         $this->_instanceName = $instanceName;
@@ -53,11 +53,11 @@ class UserFactory
     /**
      * Create class instance with specified parameters
      *
-     * @param null|int $customerId
+     * @param int $customerId
      * @throws \Magento\Framework\Exception
-     * @return \Inchoo\SocialConnect\Model\Facebook\Info|\Inchoo\SocialConnect\Model\Facebook\Info\User
+     * @return \Inchoo\SocialConnect\Model\Facebook\Info\User
      */
-    public function create($customerId = null)
+    public function create($customerId = 0)
     {
         if(!isset($this->_instance[$customerId])) {
             $instance = $this->_objectManager->create('\Inchoo\SocialConnect\Model\Facebook\Info\User');
@@ -69,11 +69,13 @@ class UserFactory
                 $instance->loadSelf();
             } else {
                 throw new \Magento\Framework\Exception(
-                    'Could not create user info object'
+                    'Could not create user info object. Please try again.'
                 );
             }
         }
 
+        // Currently logged in user info under 0 key
         return $this->_instance[$customerId];
     }
+
 }

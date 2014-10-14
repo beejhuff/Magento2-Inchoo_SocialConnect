@@ -46,7 +46,7 @@ class InfoFactory
      * Create class instance with specified parameters
      *
      * @param \StdClass $accessToken
-     * @return \Inchoo\SocialConnect\Model\Facebook\Info|\Inchoo\SocialConnect\Model\Facebook\Info\User
+     * @return \Inchoo\SocialConnect\Model\Facebook\Info
      */
     public function create(\StdClass $accessToken)
     {

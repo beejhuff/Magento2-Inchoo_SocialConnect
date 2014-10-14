@@ -9,7 +9,7 @@
 namespace Inchoo\SocialConnect\Block;
 
 
-class Login  extends \Magento\Framework\View\Element\Template
+abstract class Container  extends \Magento\Framework\View\Element\Template
 {
     /**
      * Facebook client model
@@ -26,8 +26,6 @@ class Login  extends \Magento\Framework\View\Element\Template
     /**
      * @param \Inchoo\SocialConnect\Model\Facebook\Oauth2\Client $clientFacebook
      * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param array $data
      */
     public function __construct(
         \Inchoo\SocialConnect\Model\Facebook\Oauth2\Client $clientFacebook,
@@ -41,16 +39,6 @@ class Login  extends \Magento\Framework\View\Element\Template
         $this->_registry = $registry;
 
         parent::__construct($context, $data);
-    }
-
-    /**
-     *
-     */
-    protected function _construct()
-    {
-        parent::_construct();
-
-        $this->_registry->register('inchoo_socialconnect_button_text', __('Login'));
     }
 
     /**
