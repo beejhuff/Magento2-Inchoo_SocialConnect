@@ -375,8 +375,7 @@ class Client extends \Magento\Framework\Object
      */
     protected function _isEnabled()
     {
-        return true;
-//        return $this->_getStoreConfig(self::XML_PATH_ENABLED);
+        return $this->_getStoreConfig(self::XML_PATH_ENABLED);
     }
 
     /**
@@ -384,8 +383,7 @@ class Client extends \Magento\Framework\Object
      */
     protected function _getClientId()
     {
-        return '1494587320809661';
-//        return $this->_getStoreConfig(self::XML_PATH_CLIENT_ID);
+        return $this->_getStoreConfig(self::XML_PATH_CLIENT_ID);
     }
 
     /**
@@ -393,8 +391,7 @@ class Client extends \Magento\Framework\Object
      */
     protected function _getClientSecret()
     {
-        return '078b9dd8f6aa654fcbbc4b559e29df23';
-//        return $this->_getStoreConfig(self::XML_PATH_CLIENT_SECRET);
+        return $this->_getStoreConfig(self::XML_PATH_CLIENT_SECRET);
     }
 
     /**

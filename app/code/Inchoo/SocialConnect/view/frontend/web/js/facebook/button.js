@@ -1,22 +1,22 @@
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : zeeandco_facebook_connect.appid,
+        appId      : inchoo_socialconnect.appid,
         xfbml      : true,
         version    : 'v2.1'
     });
 };
 
-function zeeandco_facebook_connect_signin_callback(response) {
+function inchoo_socialconnect_signin_callback(response) {
     if (response.authResponse) {
         // User accepted
 
         // Successful login, do ajax request
         jQuery.ajax({
             type: 'POST',
-            url: zeeandco_facebook_connect.ajaxurl,
+            url:  inchoo_socialconnect.ajaxurl,
             data: {
                 // CSRF protection
-                state: zeeandco_facebook_connect.state,
+                state:  inchoo_socialconnect.state,
 
                 // Short lived token
                 access_token: response.authResponse.accessToken,
@@ -26,7 +26,6 @@ function zeeandco_facebook_connect_signin_callback(response) {
             },
             dataType: 'json',
             success: function(data) {
-                window.suppressOnBeforeUnload = true;
                 window.location.replace(data.redirect);
             }
         });

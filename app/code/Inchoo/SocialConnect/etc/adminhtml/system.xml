@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
+    <system>
+        <section id="customer">
+            <group id="inchoo_socialconnect_facebook" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social Connect Facebook Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Backend\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="client_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Secret</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="links" translate="label" type="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Links</label>
+                    <frontend_model>\Inchoo\SocialConnect\Block\Adminhtml\Facebook\System\Config\Links</frontend_model>
+                </field>
+                <field id="origin" translate="label" type="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Domains</label>
+                    <frontend_model>\Inchoo\SocialConnect\Block\Adminhtml\Facebook\System\Config\Origins</frontend_model>
+                </field>
+                <field id="redirect" translate="label" type="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>App Domains</label>
+                    <frontend_model>\Inchoo\SocialConnect\Block\Adminhtml\Facebook\System\Config\Redirects</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
